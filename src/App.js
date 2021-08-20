@@ -2,8 +2,7 @@ import Counter from "./components/Counter";
 import './styles/App.css'
 import {useState} from "react";
 import Posts from "./components/Posts";
-import MyButton from "./components/UI/button/MyButton";
-import MyInput from "./components/UI/input/MyInput";
+import PostForm from "./components/PostForm";
 
 
 function App() {
@@ -15,33 +14,20 @@ function App() {
         {id: 4, title: 'title4', body: 'Some description'}
 
     ])
-    const [post, setPost] = useState({title: '', body: ''})
 
-
-    const addNewPost = (e) => {
-        e.preventDefault()
-        setPosts([...posts, {...post, id: Date.now()}])
-        setPost({title: '', body: ''})
+    const createPost = (newPost)=>{
+        setPosts([...posts, newPost])
+    }
+    const removePost = (post) =>{
+        setPosts(posts.filter((p)=>( p.id !==post.id
+        )))
     }
 
     return (
         <div className="App">
-            <form>
-                {/*driven component*/}
-                <MyInput
-                    value={post.title}
-                    onChange={e => setPost({...post, title: e.target.value})}
-                    type="text"
-                    placeholder="title"/>
-                <MyInput
-                    value={post.body}
-                    onChange={e => setPost({...post, body: e.target.value})}
-                    type="text"
-                    placeholder="description"/>
-                <MyButton onClick={addNewPost}>Create post</MyButton>
-            </form>
+            <PostForm create={createPost}/>
             <Counter/>
-            <Posts posts={posts} title="Some custom title"/>
+            <Posts posts={posts} remove={removePost} title="Some custom title"/>
         </div>
     );
 }

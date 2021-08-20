@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 const Counter = () => {
     
-    const [count, setCount] = useState(0);// It's hook
+    const [count, setCount] = useState(0);// It's a hook
 
     function increment() {
         return setCount(count+1)
