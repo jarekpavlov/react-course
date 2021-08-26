@@ -1,16 +1,16 @@
 import {useEffect, useState} from "react";
 import {usePosts} from "../hooks/usePosts";
 import {useFetching} from "../hooks/useFetching";
-import PostService from "../API/PostService";
+import PostService from "../api/PostService";
 import {getPageCount} from "../utils/pages";
-import MyButton from "../components/UI/button/MyButton";
-import MyModal from "../components/UI/MyModal/MyModal";
+import MyButton from "../components/ui/button/MyButton";
+import MyModal from "../components/ui/MyModal/MyModal";
 import PostForm from "../components/PostForm";
 import Counter from "../components/Counter";
 import PostFilter from "../components/PostFilter";
 import Posts from "../components/Posts";
 import Pagination from "../Pagination";
-import Loader from "../components/UI/loader/Loader";
+import Loader from "../components/ui/loader/Loader";
 
 
 
